@@ -8,6 +8,7 @@ This is a weather and local time app made with Vue.JS.
 - Next 10 forecast for every 3 hours.
 - Searching for a new city.
 - Local time of the desired city.
+- Background image is changing depends weather and day/night situations.
 
 ### Project setup
 
