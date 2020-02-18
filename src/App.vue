@@ -58,12 +58,20 @@ export default {
   },
   computed: {
     isDayTime() {
-      const hour = moment(this.cityLocalTime).format('H');
+      const format = 'HH:mm a';
+      const time = moment(this.cityLocalTimeFormatted, format);
+      const startTime = moment('07:00am', format);
+      const endTime = moment('08:00pm', format);
 
-      return moment(hour).isBetween(
-        moment({ hour: 7, minute: 0 }),
-        moment({ hour: 20, minute: 0 }),
-      );
+      if ((startTime.hour() >= 12 && endTime.hour() <= 12) || endTime.isBefore(startTime)) {
+        endTime.add(1, 'days');
+
+        if (time.hour() <= 12) {
+          time.add(1, 'days');
+        }
+      }
+      const isBetween = time.isBetween(startTime, endTime);
+      return isBetween;
     },
   },
   methods: {
@@ -78,9 +86,13 @@ export default {
         this.getHour();
       }, 60000);
     },
-    async getHour() {
-      this.cityLocalTime = await moment().tz(this.timezoneLookup);
-      this.cityLocalTimeFormatted = await this.cityLocalTime.format('LT dddd');
+    getHour() {
+      this.cityLocalTime = moment()
+        .tz(this.timezoneLookup)
+        .format();
+      this.cityLocalTimeFormatted = moment()
+        .tz(this.timezoneLookup)
+        .format('LT dddd');
     },
     getBackground() {
       const image = fetchBackgroundImage(this.code, this.isDayTime);
@@ -126,7 +138,7 @@ export default {
       }
       return weatherApiInstance.get(url, parameters);
     },
-    fetchLocalWeather() {
+    fetchLocalWeatherAndForecast() {
       this.query = '';
       this.fetchWeather();
       this.fetchForecast();
@@ -170,7 +182,7 @@ export default {
     },
   },
   created() {
-    this.fetchLocalWeather();
+    this.fetchLocalWeatherAndForecast();
     this.updateHour();
   },
 };
