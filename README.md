@@ -1,6 +1,6 @@
 # vue-weather-app
 
-This is a weather app made with Vue.JS.
+This is a weather and local time app made with Vue.JS.
 
 ### Features
 
@@ -25,6 +25,6 @@ Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
 ##### Design
 
-![Design 1](/src/assets/images/v1-1.png)
+![Design 1](/src/assets/images/v1-1.jpg)
 
-![Design 2](/src/assets/images/v1-2.png)
+![Design 2](/src/assets/images/v1-2.jpg)
