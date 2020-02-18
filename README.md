@@ -1,24 +1,30 @@
-# local-weather-app
+# vue-weather-app
 
-## Project setup
-```
-npm install
-```
+This is a weather app made with Vue.JS.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Features
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- Current local weather informations and time when app first load.
+- Next 10 forecast for every 3 hours.
+- Searching for a new city.
+- Local time of the desired city.
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Project setup
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- You need an [Open Weather Map](https://openweathermap.org/) API key.
+- You need an [IP Stack](https://ipstack.com/) API key.
+- You need to change the filename `.env.sample` to `.env` and initilize the API settings.
+- Run the command `npm install` in project directory to install dependencies.
+
+### Starting the app
+
+In the project directory, you can run: `npm run serve` to run the app in the development mode.<br />
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
+
+---
+
+##### Design
+
+![Design 1](/src/assets/images/v1-1.png)
+
+![Design 2](/src/assets/images/v1-2.png)

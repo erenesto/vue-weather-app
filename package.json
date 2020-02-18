@@ -8,8 +8,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.27",
+    "shortid": "^2.2.15",
+    "tz-lookup": "^6.1.25",
+    "vue": "^2.6.11",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
@@ -17,10 +23,13 @@
     "@vue/cli-service": "~4.2.0",
     "@vue/eslint-config-airbnb": "^5.0.2",
     "babel-eslint": "^10.0.3",
+    "cross-env": "^7.0.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-vue": "^6.1.2",
     "node-sass": "^4.12.0",
+    "prettier": "^1.19.1",
+    "prettier-eslint": "^9.0.1",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   },
@@ -36,7 +45,13 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-console": "off",
+      "import/newline-after-import": "off",
+      "operator-linebreak": "off",
+      "no-unused-vars": "off",
+      "max-len": "off"
+    }
   },
   "browserslist": [
     "> 1%",
