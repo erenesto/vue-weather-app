@@ -25,7 +25,7 @@ import moment from 'moment';
 import tz from 'moment-timezone';
 import shortid from 'shortid';
 import tzlookup from 'tz-lookup';
-import { weatherApiInstance, geoApiInstance } from './api';
+import { weatherApiInstance } from './api';
 import { fetchBackgroundImage } from './utils';
 import WeatherBoxVue from './components/WeatherBox.vue';
 import WeatherForecastVue from './components/WeatherForecast.vue';

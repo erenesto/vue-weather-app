@@ -15,12 +15,3 @@ weatherApiInstance.interceptors.request.use((config) => {
   config.params.appid = process.env.VUE_APP_OPENWEATHER_API_KEY;
   return config;
 });
-
-const geoApiOptions = {
-  baseURL: 'http://ip-api.com',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-};
-
-export const geoApiInstance = axios.create(geoApiOptions);
