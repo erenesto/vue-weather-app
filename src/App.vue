@@ -43,8 +43,8 @@ export default {
   data() {
     return {
       weather: '',
-      lat: null,
-      lon: null,
+      lat: 38.423733,
+      lon: 27.142826,
       code: null,
       backgroundImg: '',
       query: '',
@@ -100,38 +100,28 @@ export default {
         this.backgroundImg = img;
       });
     },
-    async fetchData(url) {
+    fetchData(url) {
       let parameters;
 
-      try {
-        await geoApiInstance.get('/json/?fields=status,lat,lon').then((res) => {
-          this.lat = res.data.lat;
-          this.lon = res.data.lon;
-        });
-
-        if (this.query !== '') {
-          parameters = {
-            params: {
-              q: this.query,
-              units: 'metric',
-              cnt: 10,
-            },
-          };
-        } else {
-          parameters = {
-            params: {
-              lat: this.lat,
-              lon: this.lon,
-              units: 'metric',
-              cnt: 10,
-            },
-          };
-        }
-      } catch (error) {
-        console.log(error);
-        // eslint-disable-next-line no-alert
-        alert('Please disable uBlock or adblock to try this app');
+      if (this.query !== '') {
+        parameters = {
+          params: {
+            q: this.query,
+            units: 'metric',
+            cnt: 10,
+          },
+        };
+      } else {
+        parameters = {
+          params: {
+            lat: this.lat,
+            lon: this.lon,
+            units: 'metric',
+            cnt: 10,
+          },
+        };
       }
+
       return weatherApiInstance.get(url, parameters);
     },
     fetchLocalWeatherAndForecast() {
