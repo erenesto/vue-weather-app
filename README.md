@@ -13,9 +13,9 @@ This is a weather and local time app made with Vue.JS.
 ### Project setup
 
 - You need an [Open Weather Map](https://openweathermap.org/) API key.
-- You need an [IP Stack](https://ipstack.com/) API key.
 - You need to change the filename `.env.sample` to `.env` and initilize the API settings.
 - Run the command `npm install` in project directory to install dependencies.
+- If you are using uBlock or adblock, disable them.
 
 ### Starting the app
 

@@ -17,16 +17,10 @@ weatherApiInstance.interceptors.request.use((config) => {
 });
 
 const geoApiOptions = {
-  baseURL: 'http://api.ipstack.com',
+  baseURL: 'http://ip-api.com',
   headers: {
     'Content-Type': 'application/json',
   },
 };
 
 export const geoApiInstance = axios.create(geoApiOptions);
-
-geoApiInstance.interceptors.request.use((config) => {
-  // eslint-disable-next-line no-param-reassign
-  config.params.access_key = process.env.VUE_APP_IPSTACK_API_KEY;
-  return config;
-});

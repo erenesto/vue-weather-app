@@ -104,16 +104,10 @@ export default {
       let parameters;
 
       try {
-        await geoApiInstance
-          .get('/check', {
-            params: {
-              /* not delete for merge */
-            },
-          })
-          .then((res) => {
-            this.lat = res.data.latitude;
-            this.lon = res.data.longitude;
-          });
+        await geoApiInstance.get('/json/?fields=status,lat,lon').then((res) => {
+          this.lat = res.data.lat;
+          this.lon = res.data.lon;
+        });
 
         if (this.query !== '') {
           parameters = {
@@ -135,6 +129,8 @@ export default {
         }
       } catch (error) {
         console.log(error);
+        // eslint-disable-next-line no-alert
+        alert('Please disable uBlock or adblock to try this app');
       }
       return weatherApiInstance.get(url, parameters);
     },
